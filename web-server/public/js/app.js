@@ -16,14 +16,19 @@ const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')//# : when i use id
 const messageTwo = document.querySelector('#message-2')
 
+// const Web3 = require('web3');
+// var web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
 
-weatherForm.addEventListener('submit',(e)=>{
+
+weatherForm.addEventListener('submit',async (e)=>{
     //do not refresh
     e.preventDefault()
     messageOne.textContent= 'Loading....'
     messageTwo.textContent= ''
-
-    const location = search.value
+    
+    // const account = await web3.eth.getAccounts();
+    // console.log(account)
+    const location = search.valuey
     sendLocation(location,(error,data)=>{
         if(error){
             messageOne.textContent=error

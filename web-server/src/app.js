@@ -31,7 +31,12 @@ app.get('',(req,res)=>{
     })
 })
 
-app.get('/about',(req,res)=>{
+app.get('/about',async (req,res)=>{
+    
+    var Web3 = require('web3');
+    var web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+    
+    const account = await web3.eth.getAccounts();
     res.render('about',{
         title: 'About   ',
         name: 'DongCheol'
